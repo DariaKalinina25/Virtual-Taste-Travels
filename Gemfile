@@ -13,7 +13,7 @@ gem "jbuilder"
 gem "redis", ">= 4.0.1"
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 gem "bootsnap", require: false
-gem 'rubocop', require: false
+gem 'rubocop-rails', require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri windows ]
