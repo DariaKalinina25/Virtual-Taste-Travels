@@ -5,6 +5,7 @@ source 'https://rubygems.org'
 ruby '3.2.3'
 
 gem 'bootsnap', require: false
+gem 'devise'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
@@ -16,7 +17,6 @@ gem 'sprockets-rails'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
-gem 'devise'
 
 group :development, :test do
   gem 'debug', platforms: %i[mri windows]
