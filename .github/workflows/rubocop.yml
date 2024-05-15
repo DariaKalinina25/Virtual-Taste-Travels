@@ -1,7 +1,10 @@
-name: RuboCop
+name: Rubocop
 
 on:
   push:
+    branches:
+      - main
+  pull_request:
     branches:
       - main
 
@@ -9,17 +12,28 @@ jobs:
   rubocop:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: virtual_taste_travels_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Ruby
-      uses: ruby/setup-ruby@v1
-      with:
-        ruby-version: 3.2.3
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.2.3
 
-    - name: Install dependencies
-      run: bundle install
+      - name: Install dependencies
+        run: bundle install
 
-    - name: Run RuboCop
-      run: bundle exec rubocop
+      - name: Run RuboCop
+        run: bundle exec rubocop
