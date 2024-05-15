@@ -19,3 +19,9 @@ production:
   database: virtual_taste_travels_production
   username: virtual_taste_travels
   password: <%= ENV["VIRTUAL_TASTE_TRAVELS_DATABASE_PASSWORD"] %>
+
+ci:
+  <<: *default
+  database: virtual_taste_travels_test_ci
+  username: postgres
+  password: postgres

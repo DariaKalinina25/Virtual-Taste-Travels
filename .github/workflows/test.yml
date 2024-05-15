@@ -14,6 +14,17 @@ jobs:
   test:
     runs-on: ubuntu-latest
 
+    services:
+      postgres:
+        image: postgres:latest
+        env:
+          POSTGRES_DB: virtual_taste_travels_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
+
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
@@ -23,13 +34,13 @@ jobs:
       with:
         ruby-version: 3.2.3
 
-    - name: Use Node.js 20
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
-
     - name: Install dependencies
       run: bundle install
+
+    - name: Set up database
+      run: |
+        cp config/database.yml.ci config/database.yml
+        bundle exec rake db:create db:schema:load RAILS_ENV=test
 
     - name: Run tests
       run: bundle exec rspec
