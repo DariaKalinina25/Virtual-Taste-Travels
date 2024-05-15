@@ -22,6 +22,10 @@ jobs:
         env:
           POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
           POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+          
+      docker:
+        image: docker:stable
+        options: --privileged
 
     steps:
     - name: Checkout code
@@ -40,6 +44,11 @@ jobs:
     - name: Install dependencies
       run: bundle install
 
+    - name: Build Docker image
+      run: docker build -t myimage .
+
+    - name: Run Docker container
+      run: docker run myimage
+
     - name: Run tests
       run: bundle exec rspec
-
