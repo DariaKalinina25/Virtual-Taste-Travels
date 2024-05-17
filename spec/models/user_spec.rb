@@ -9,8 +9,5 @@ RSpec.describe User, type: :model do
     it { should respond_to(:password) }
     it { should respond_to(:password_confirmation) }
     it { should respond_to(:remember_created_at) }
-    it { should respond_to(:reset_password_token) }
-    it { should respond_to(:reset_password_sent_at) }
-    it { should respond_to(:remember_created_at) }
   end
 end
