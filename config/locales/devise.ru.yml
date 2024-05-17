@@ -22,8 +22,3 @@ ru:
       signed_in: "Успешный вход в систему."
       signed_out: "Успешный выход из системы."
       already_signed_out: "Успешный выход из системы."
-  errors:
-    messages:
-      expired: "истек, пожалуйста, запросите новое"
-      not_found: "не найден"
-      not_locked: "не был заблокирован"
