@@ -26,3 +26,6 @@ ru:
       password: "Пароль"
       remember_me: "Запомнить меня"
       submit: "Войти"
+    shared:
+      log_in: "Войти"
+      sign_up: "Зарегистрироваться"
