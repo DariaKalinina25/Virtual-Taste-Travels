@@ -2,8 +2,8 @@
 
 require 'rails_helper'
 
-RSpec.feature 'User registration', type: :feature do
-  scenario 'Sign up' do
+RSpec.feature 'Sign up', type: :feature do
+  scenario 'The user can register in the system with valid data' do
     I18n.with_locale(:en) do
       visit new_user_registration_path
 
