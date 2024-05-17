@@ -22,3 +22,7 @@ ru:
       signed_in: "Успешный вход в систему."
       signed_out: "Успешный выход из системы."
       already_signed_out: "Успешный выход из системы."
+      log_in: "Вход"
+      password: "Пароль"
+      remember_me: "Запомнить меня"
+      submit: "Войти"
