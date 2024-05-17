@@ -6,6 +6,7 @@ ruby '3.2.3'
 
 gem 'bootsnap', require: false
 gem 'devise'
+gem 'faker'
 gem 'importmap-rails'
 gem 'jbuilder'
 gem 'pg', '~> 1.1'
@@ -20,7 +21,9 @@ gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
 
 group :development, :test do
+  gem 'capybara'
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
   gem 'rspec-rails'
 end
 
